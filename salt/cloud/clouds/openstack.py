@@ -739,7 +739,7 @@ def create(vm_):
                     log.warning('{0} is a private IP'.format(private_ip))
                     ignore_ip = ignore_cidr(vm_, private_ip)
                     if private_ip not in data.private_ips and not ignore_ip:
-                        result.append(private_ip)
+                        result.insert(0, private_ip)
 
         if rackconnect(vm_) is True and ssh_interface(vm_) != 'private_ips':
             data.public_ips = access_ip
